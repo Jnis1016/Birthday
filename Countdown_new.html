@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<style>
+/* general styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+ 
+body {
+  align-items: center;
+  background-image:linear-Gradient(200deg,#6646b9,#758b3ec8);
+  display: flex;
+  font-family: 'Exo 2', sans-serif;
+        font-weight: bold;
+        line-height: 26px;
+}
+ 
+.container {
+  color: #000000;
+  margin: 0 auto;
+  text-align: center;
+}
+ 
+h1 {
+  font-weight: normal;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+ 
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+ 
+li span {
+  display: block;
+  font-size: 4.5rem;
+}
+ 
+.message {
+  font-size: 4rem;
+}
+ 
+#content {
+  display: none;
+  padding: 1rem;
+}
+ 
+.emoji {
+  padding: 0 0.25rem;
+}
+ 
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: 11px;
+    font-weight: bold;
+  }
+ 
+  li {
+    font-size: 10px;
+    padding: 0.75rem;
+    font-weight: bold;
+  }
+ 
+  li span {
+    font-size: 10px;
+    font-weight: bold;
+  }
+}
+.Link{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 20px;
+}
+button{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    width: fit-content;
+    background-color: rgb(255, 255, 255);
+    color: #758b3ec8;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 14px;
+}
+</style>
+<script>
+(function () {
+  const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+ 
+  let birthday = "Jan 30, 2024 00:00:00",
+    countDown = new Date(birthday).getTime(),
+    x = setInterval(function () {
+      let now = new Date().getTime(),
+        distance = countDown - now;
+ 
+      (document.getElementById("days").innerText = Math.floor(distance / day)),
+        (document.getElementById("hours").innerText = Math.floor(
+          (distance % day) / hour
+        )),
+        (document.getElementById("minutes").innerText = Math.floor(
+          (distance % hour) / minute
+        )),
+        (document.getElementById("seconds").innerText = Math.floor(
+          (distance % minute) / second
+        ));
+ 
+      //do something later when date is reached
+      if (distance < 0) {
+        let headline = document.getElementById("headline"),
+          countdown = document.getElementById("countdown"),
+          content = document.getElementById("content");
+ 
+        headline.innerText = "";
+        countdown.style.display = "none";
+        content.style.display = "block";
+ 
+        clearInterval(x);
+      }
+      //seconds
+    }, 0);
+})();
+</script>
+<body>
+    <div class="container">
+      <h1 id="headline">Countdown to my Ganti's Birthday:</h1>
+      <div id="countdown">
+        <ul>
+          <li><span id="days"></span>days</li>
+          <li><span id="hours"></span>Hours</li>
+          <li><span id="minutes"></span>Minutes</li>
+          <li><span id="seconds"></span>Seconds</li>
+        </ul>
+      </div>
+      <div class="message">
+        <div class="Link" id="content">
+          <span class="emoji">
+            <span>Here Ganti Try This Link!</span>
+            <a href="Birthday.html">
+            <button>
+              CLICK ME
+            </button>
+            </a>
+          </span>
+
+        </div>
+      </div>
+    </div>
+    </body>
+</html>
